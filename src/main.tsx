@@ -29,7 +29,17 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <OnchainKitProvider chain={base}>
+        <OnchainKitProvider 
+          chain={base}
+          config={{
+            wallet: {
+              display: "modal",
+            },
+            appearance: {
+              name: "Dice Game",
+              mode: "auto",
+            },
+          }}>
           <BetSwirlSDKProvider initialChainId={base.id} bankrollToken={DEGEN_TOKEN}>
             <App />
           </BetSwirlSDKProvider>
