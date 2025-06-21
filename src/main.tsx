@@ -2,13 +2,20 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { OnchainKitProvider } from '@coinbase/onchainkit'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { http } from 'viem'
+import { http, type Hex } from 'viem'
 import { WagmiProvider, createConfig } from 'wagmi'
 import { base } from 'wagmi/chains'
-import { BetSwirlSDKProvider } from '@betswirl/ui'
+import { BetSwirlSDKProvider, type TokenWithImage } from '@betswirl/ui'
 import '@betswirl/ui/styles.css'
 import './index.css'
 import App from './App.tsx'
+
+const DEGEN_TOKEN: TokenWithImage = {
+  address: "0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed" as Hex,
+  symbol: "DEGEN",
+  decimals: 18,
+  image: "https://www.betswirl.com/img/tokens/DEGEN.svg",
+}
 
 const queryClient = new QueryClient()
 const config = createConfig({
@@ -23,7 +30,7 @@ createRoot(document.getElementById('root')!).render(
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
         <OnchainKitProvider chain={base}>
-          <BetSwirlSDKProvider initialChainId={base.id}>
+          <BetSwirlSDKProvider initialChainId={base.id} bankrollToken={DEGEN_TOKEN}>
             <App />
           </BetSwirlSDKProvider>
         </OnchainKitProvider>
