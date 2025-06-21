@@ -1,40 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import { CoinTossGame } from '@betswirl/ui'  // Added: Import casino game component
+import {DiceGame} from '@betswirl/ui'  // Added: Import casino game component
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>  {/* Modified: Center logos */}
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      {/* Added: Casino game component */}
-      <div style={{ margin: '2rem 0', display: 'flex', justifyContent: 'center', isolation: 'isolate' }}>
-        <CoinTossGame />
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    return (
+        <DiceGame
+            theme="dark"
+            customTheme={{
+                "--primary": "rgb(74 41 24)",
+                "--play-btn-font": "rgb(225 159 31)",
+            } as React.CSSProperties}
+            backgroundImage="/game-bg.png"
+        />
+    )
 }
 
 export default App
