@@ -6,9 +6,9 @@ import { http, type Hex } from 'viem'
 import { WagmiProvider, createConfig } from 'wagmi'
 import { base } from 'wagmi/chains'
 import { BetSwirlSDKProvider, type TokenWithImage } from '@betswirl/ui'
-import '@betswirl/ui/styles.css'
 import './index.css'
 import App from './App.tsx'
+import '@betswirl/ui/styles.css'
 
 const DEGEN_TOKEN: TokenWithImage = {
   address: "0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed" as Hex,
