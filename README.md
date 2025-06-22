@@ -2,4 +2,4 @@
 
 This project is the result of following the integration guide: https://github.com/chainhackers/sdk/blob/main/examples/mini-app/docs/react-guide.md
 
-Live demo: https://betswirl-ui-react-demo.vercel.app/
+Live demo: https://betswirl-react-demo.vercel.app/
