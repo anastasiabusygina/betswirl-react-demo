@@ -1,8 +1,8 @@
-import {DiceGame, CoinTossGame, RouletteGame} from '@betswirl/ui'
+import {DiceGame, CoinTossGame, RouletteGame, KenoGame} from '@betswirl/ui'
 import {useState} from 'react'
 import './App.css'
 
-type GameType = 'dice' | 'coin' | 'roulette'
+type GameType = 'dice' | 'coin' | 'roulette' | 'keno'
 
 function App() {
     const [activeGame, setActiveGame] = useState<GameType>('dice')
@@ -20,6 +20,8 @@ function App() {
                 return <CoinTossGame theme="dark" customTheme={gameTheme} backgroundImage="/game-bg.png" />
             case 'roulette':
                 return <RouletteGame theme="dark" customTheme={gameTheme} backgroundImage="/game-bg.png" />
+            case 'keno':
+                return <KenoGame theme="dark" customTheme={gameTheme} backgroundImage="/game-bg.png" />
         }
     }
     
@@ -43,6 +45,12 @@ function App() {
                     onClick={() => setActiveGame('roulette')}
                 >
                     Roulette
+                </button>
+                <button 
+                    className={`nav-button ${activeGame === 'keno' ? 'active' : ''}`}
+                    onClick={() => setActiveGame('keno')}
+                >
+                    Keno
                 </button>
             </nav>
             <div className="game-content">
