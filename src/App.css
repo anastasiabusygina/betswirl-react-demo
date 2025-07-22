@@ -70,10 +70,13 @@
     padding: 0;
     margin: 0;
     width: 100%;
+    align-items: stretch;
+    justify-content: stretch;
   }
   
   .game-content > * {
-    width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
     margin: 0;
   }
 }
