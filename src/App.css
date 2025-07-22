@@ -66,17 +66,34 @@
     font-size: 0.875rem;
   }
   
+  .app-container {
+    padding: 0;
+    margin: 0;
+  }
+  
   .game-content {
     padding: 0;
     margin: 0;
     width: 100%;
-    align-items: stretch;
-    justify-content: stretch;
+    overflow-x: hidden;
   }
   
-  .game-content > * {
+  /* Override library component styles */
+  .game-content [class*="Game"] {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Override container styles */
+  .game-content [class*="container"],
+  .game-content [class*="Container"],
+  .game-content [class*="wrapper"],
+  .game-content [class*="Wrapper"] {
     width: 100% !important;
     max-width: 100% !important;
-    margin: 0;
+    padding: 0 !important;
+    margin: 0 !important;
   }
 }
